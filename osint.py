@@ -1,11 +1,13 @@
 import requests
-from colorama import Fore, Style, init
 import sys
-import os
-import base64 as b64
-import binascii as ba
 
-username = input(Fore.RED + "target" + Fore.WHITE + "@")
+if len(sys.argv) > 2:
+    print("Usage : osint.py [username]")
+    quit()
+if len(sys.argv) == 1 :
+    username = input("target : @")
+else :
+    username = sys.argv[1]
 
 headers = {
     'accept-language': 'en-US;q=1.0',
@@ -23,42 +25,42 @@ try:
 
     response_json = response.json()
 
-    print(Fore.WHITE + "Response Details:")
+    print("Response Details:")
 
-    print(Fore.RED + "Multiple Users Found: " + Fore.WHITE + str(response_json.get('multiple_users_found', 'N/A')))
-    print(Fore.RED + "Email Sent: " + Fore.WHITE + str(response_json.get('email_sent', 'N/A')))
-    print(Fore.RED + "SMS Sent: " + Fore.WHITE + str(response_json.get('sms_sent', 'N/A')))
-    print(Fore.RED + "WA Sent: " + Fore.WHITE + str(response_json.get('wa_sent', 'N/A')))
-    print(Fore.RED + "Lookup Source: " + Fore.WHITE + response_json.get('lookup_source', 'N/A'))
-    print(Fore.RED + "Corrected Input: " + Fore.WHITE + response_json.get('corrected_input', 'N/A'))
-    print(Fore.RED + "Show UHL Entry in Verification Steps: " + Fore.WHITE + str(response_json.get('show_uhl_entry_in_verification_steps', 'N/A')))
-    print(Fore.RED + "UHL Entry Eligible CPS: " + Fore.WHITE + str(response_json.get('uhl_entry_eligible_cps', 'N/A')))
-    print(Fore.RED + "Obfuscated Phone: " + Fore.WHITE + response_json.get('obfuscated_phone', 'N/A'))
+    print("Multiple Users Found: " + str(response_json.get('multiple_users_found', 'N/A')))
+    print("Email Sent: " + str(response_json.get('email_sent', 'N/A')))
+    print("SMS Sent: " + str(response_json.get('sms_sent', 'N/A')))
+    print("WA Sent: " + str(response_json.get('wa_sent', 'N/A')))
+    print("Lookup Source: " + response_json.get('lookup_source', 'N/A'))
+    print("Corrected Input: " + response_json.get('corrected_input', 'N/A'))
+    print("Show UHL Entry in Verification Steps: " + str(response_json.get('show_uhl_entry_in_verification_steps', 'N/A')))
+    print("UHL Entry Eligible CPS: " + str(response_json.get('uhl_entry_eligible_cps', 'N/A')))
+    print("Obfuscated Phone: " + response_json.get('obfuscated_phone', 'N/A'))
 
     user = response_json.get('user', {})
-    print(Fore.RED + "User Information:")
-    print(Fore.RED + "  Full Name: " + Fore.WHITE + user.get('full_name', 'N/A'))
-    print(Fore.RED + "  Username: " + Fore.WHITE + user.get('username', 'N/A'))
-    print(Fore.RED + "  Profile Pic URL: " + Fore.WHITE + user.get('profile_pic_url', 'N/A'))
-    print(Fore.RED + "  Verified: " + Fore.WHITE + str(user.get('is_verified', 'N/A')))
+    print("User Information:")
+    print(" -  Full Name: " + user.get('full_name', 'N/A'))
+    print(" -  Username: " + user.get('username', 'N/A'))
+    print(" -  Profile Pic URL: " + user.get('profile_pic_url', 'N/A'))
+    print(" -  Verified: " + str(user.get('is_verified', 'N/A')))
 
-    print(Fore.RED + "Has Valid Phone: " + Fore.WHITE + str(response_json.get('has_valid_phone', 'N/A')))
-    print(Fore.RED + "Can Email Reset: " + Fore.WHITE + str(response_json.get('can_email_reset', 'N/A')))
-    print(Fore.RED + "Can SMS Reset: " + Fore.WHITE + str(response_json.get('can_sms_reset', 'N/A')))
-    print(Fore.RED + "Can WA Reset: " + Fore.WHITE + str(response_json.get('can_wa_reset', 'N/A')))
-    print(Fore.RED + "Is WA Timing Signal: " + Fore.WHITE + str(response_json.get('is_wa_timing_signal', 'N/A')))
-    print(Fore.RED + "WA Account Recovery Type: " + Fore.WHITE + response_json.get('wa_account_recovery_type', 'N/A'))
-    print(Fore.RED + "Can P2S Reset: " + Fore.WHITE + str(response_json.get('can_p2s_reset', 'N/A')))
-    print(Fore.RED + "Can Flashcall Reset: " + Fore.WHITE + str(response_json.get('can_flashcall_reset', 'N/A')))
-    print(Fore.RED + "Phone Number: " + Fore.WHITE + response_json.get('phone_number', 'N/A'))
-    print(Fore.RED + "Email: " + Fore.WHITE + str(response_json.get('email', 'N/A')))
+    print("Has Valid Phone: " + str(response_json.get('has_valid_phone', 'N/A')))
+    print("Can Email Reset: " + str(response_json.get('can_email_reset', 'N/A')))
+    print("Can SMS Reset: " + str(response_json.get('can_sms_reset', 'N/A')))
+    print("Can WA Reset: " + str(response_json.get('can_wa_reset', 'N/A')))
+    print("Is WA Timing Signal: " + str(response_json.get('is_wa_timing_signal', 'N/A')))
+    print("WA Account Recovery Type: " + response_json.get('wa_account_recovery_type', 'N/A'))
+    print("Can P2S Reset: " + str(response_json.get('can_p2s_reset', 'N/A')))
+    print("Can Flashcall Reset: " + str(response_json.get('can_flashcall_reset', 'N/A')))
+    print("Phone Number: " + response_json.get('phone_number', 'N/A'))
+    print("Email: " + str(response_json.get('email', 'N/A')))
 
-    print(Fore.RED + "FB Login Option: " + Fore.WHITE + str(response_json.get('fb_login_option', 'N/A')))
-    print(Fore.RED + "P2S Option Position: " + Fore.WHITE + response_json.get('p2s_option_position', 'N/A'))
-    print(Fore.RED + "Autosend Disabled: " + Fore.WHITE + str(response_json.get('autosend_disabled', 'N/A')))
-    print(Fore.RED + "Toast Message: " + Fore.WHITE + response_json.get('toast_message', 'N/A'))
-    print(Fore.RED + "Can Recover with Code: " + Fore.WHITE + str(response_json.get('can_recover_with_code', 'N/A')))
-    print(Fore.RED + "Status: " + Fore.WHITE + response_json.get('status', 'N/A'))
+    print("FB Login Option: " + str(response_json.get('fb_login_option', 'N/A')))
+    print("P2S Option Position: " + response_json.get('p2s_option_position', 'N/A'))
+    print("Autosend Disabled: " + str(response_json.get('autosend_disabled', 'N/A')))
+    print("Toast Message: " + response_json.get('toast_message', 'N/A'))
+    print("Can Recover with Code: " + str(response_json.get('can_recover_with_code', 'N/A')))
+    print("Status: " + response_json.get('status', 'N/A'))
 
 except requests.RequestException as e:
-    print(Fore.RED + f"An error occurred: {e}")
+    print(f"An error occurred: {e}")
