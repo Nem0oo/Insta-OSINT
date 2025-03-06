@@ -1,13 +1,25 @@
 import requests
 import sys
+from pathlib import Path
+import json
 
-if len(sys.argv) > 2:
-    print("Usage : osint.py [username]")
-    quit()
-if len(sys.argv) == 1 :
-    username = input("target : @")
-else :
-    username = sys.argv[1]
+usage = "Usage : osint.py [username] [--json path/to/file.json]"
+pathJSON = ""
+match(len(sys.argv)):
+    case 1:
+        username = input("target : @")
+    case 2:
+        if sys.argv[1] != "--json":
+            username = sys.argv[1]
+        else:
+            print(usage)
+            quit()
+    case 4:
+        username = sys.argv[1]
+        pathJSON = sys.argv[3]
+    case _:
+        print(usage)
+        quit()
 
 headers = {
     'accept-language': 'en-US;q=1.0',
@@ -24,6 +36,8 @@ try:
     response.raise_for_status()    
 
     response_json = response.json()
+    with open(Path(pathJSON), "w") as f:
+        json.dump(response_json,f)
 
     print("Response Details:")
 
