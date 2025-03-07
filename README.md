@@ -17,22 +17,14 @@ Instagram OSINT which uses private api to gather private info about account.
 
 1. git clone https://github.com/Nem0oo/Insta-OSINT
 2. Running the script
-   2.1 Install package and use globally
-   
-   `cd Insta-OSINT`
-
-   `pipx install . `
-
-   `insta-osint username`
-
-   2.2 Just run the script
-
-   `python3 ./Insta-OSINT/osint/main.py username`
-
-3. Options
-
-   `insta-osint username [--json path/To/SavedFile.json]`
-
+   2.1 Install package and use globally  
+   `cd Insta-OSINT`  
+   `pipx install . `  
+   `insta-osint username`  
+   2.2 Just run the script  
+   `python3 ./Insta-OSINT/osint/main.py username`  
+3. Options  
+   `insta-osint username [--json path/To/SavedFile.json]`  
 ## License
 
 This project is licensed under the [GNU General Public License (GNU GPL)]([link-to-license-file](https://github.com/Nem0oo/Insta-OSINT/blob/main/LICENSE)).
