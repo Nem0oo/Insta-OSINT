@@ -15,7 +15,7 @@ Instagram OSINT which uses private api to gather private info about account.
 
 ## Usage
 
-1. Clone the repo
+1. Clone the repo  
    `git clone https://github.com/Nem0oo/Insta-OSINT`
 2. Running the script  
    2.1 Install package and use globally  
