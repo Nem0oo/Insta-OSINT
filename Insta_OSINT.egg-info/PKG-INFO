@@ -1,7 +1,0 @@
-Metadata-Version: 2.2
-Name: Insta-OSINT
-Version: 1.0.0
-License-File: LICENSE
-Requires-Dist: requests
-Requires-Dist: pathlib
-Dynamic: requires-dist

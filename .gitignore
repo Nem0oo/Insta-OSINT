@@ -1,2 +1,4 @@
 #created json files
 *.json
+Insta_OSINT.egg/
+build/
