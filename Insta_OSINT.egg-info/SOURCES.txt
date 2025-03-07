@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+Insta_OSINT.egg-info/PKG-INFO
+Insta_OSINT.egg-info/SOURCES.txt
+Insta_OSINT.egg-info/dependency_links.txt
+Insta_OSINT.egg-info/entry_points.txt
+Insta_OSINT.egg-info/requires.txt
+Insta_OSINT.egg-info/top_level.txt
+osint/__init__.py
+osint/main.py

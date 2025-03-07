@@ -1,0 +1,2 @@
+[console_scripts]
+insta-osint = osint.main:main
