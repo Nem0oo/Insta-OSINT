@@ -2,3 +2,4 @@
 *.json
 Insta_OSINT.egg/
 build/
+Insta_OSINT.egg-info/
