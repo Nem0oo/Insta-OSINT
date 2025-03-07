@@ -4,11 +4,10 @@ from pathlib import Path
 import json
 
 def main():
-    usage = "Usage : osint.py [username] [--json path/to/file.json]"
+    usage = "Usage : insta-osint username [--json path/To/SavedFile.json]"
     pathJSON = ""
+
     match(len(sys.argv)):
-        case 1:
-            username = input("target : @")
         case 2:
             if sys.argv[1] != "--json":
                 username = sys.argv[1]

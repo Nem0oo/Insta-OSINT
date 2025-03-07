@@ -1,7 +1,9 @@
 # Insta-OSINT
+
 Instagram OSINT which uses private api to gather private info about account.
 
-# Gathers private account info such as: 
+# Gathers private account info such as:
+
 - If user has EMAIL connected to Instagram
 - If user has PHONE connected to Instagram
 - If user has WHATSAPP connected to Instagram
@@ -12,8 +14,17 @@ Instagram OSINT which uses private api to gather private info about account.
 - Characters of Email
 
 ## Usage
-1. Install necessary libraries (requests, colorama, base64, binascii)
-2. python/python3 osint.py
+
+1. git clone https://github.com/Nem0oo/Insta-OSINT
+2. Running the script   
+   2.1 Install package and use globally
+   `cd Insta-OSINT`
+   `pipx install . `
+   `insta-osint username`
+   2.2 Just run the script
+   `python3 ./Insta-OSINT/osint/main.py username`
+3. Options
+`insta-osint username [--json path/To/SavedFile.json]`
 
 ## License
 
